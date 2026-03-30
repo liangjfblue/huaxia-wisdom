@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华夏智囊 - 老祖宗智慧全家桶</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: #0a0a0f;
+  color: #e8e6e3;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  background: radial-gradient(ellipse at 50% 0%, #1a0a2e 0%, #0a0a0f 70%);
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200, 160, 80, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1px solid rgba(200, 160, 80, 0.3);
+  background: rgba(200, 160, 80, 0.05);
+  color: #c8a050;
+  font-size: 14px;
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 8vw, 72px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #e8d5a3 0%, #c8a050 50%, #e8d5a3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: clamp(16px, 3vw, 22px);
+  color: #888;
+  max-width: 560px;
+  margin-bottom: 40px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat .num {
+  font-size: 36px;
+  font-weight: 800;
+  color: #c8a050;
+}
+
+.hero-stat .label {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 80px 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #e8d5a3;
+}
+
+.section-sub {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 48px;
+}
+
+/* ===== PROBLEM ===== */
+.problem {
+  background: linear-gradient(180deg, #0a0a0f 0%, #0f0f18 100%);
+}
+
+.problem-box {
+  background: rgba(255, 80, 80, 0.05);
+  border: 1px solid rgba(255, 80, 80, 0.15);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.problem-box .label {
+  font-size: 12px;
+  color: #ff6b6b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.problem-box .text {
+  font-size: 15px;
+  color: #999;
+  font-style: italic;
+}
+
+.problem-box .highlight {
+  color: #ff6b6b;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ===== SOLUTION ===== */
+.solution { background: #0f0f18; }
+
+.solution-box {
+  background: rgba(200, 160, 80, 0.05);
+  border: 1px solid rgba(200, 160, 80, 0.2);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.solution-box .label {
+  font-size: 12px;
+  color: #c8a050;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.solution-box .text {
+  font-size: 15px;
+  color: #ccc;
+}
+
+.solution-box .highlight {
+  color: #c8a050;
+  font-weight: 700;
+}
+
+/* ===== COMPARE ===== */
+.compare {
+  background: linear-gradient(180deg, #0f0f18 0%, #0a0a0f 100%);
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .compare-grid { grid-template-columns: 1fr; }
+}
+
+.compare-card {
+  border-radius: 16px;
+  padding: 24px;
+  min-height: 320px;
+}
+
+.compare-card.bad {
+  background: rgba(255, 80, 80, 0.04);
+  border: 1px solid rgba(255, 80, 80, 0.12);
+}
+
+.compare-card.good {
+  background: rgba(80, 200, 120, 0.04);
+  border: 1px solid rgba(80, 200, 120, 0.15);
+}
+
+.compare-card .tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.compare-card.bad .tag {
+  background: rgba(255, 80, 80, 0.1);
+  color: #ff6b6b;
+}
+
+.compare-card.good .tag {
+  background: rgba(80, 200, 120, 0.1);
+  color: #50c878;
+}
+
+.compare-card .question {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #ddd;
+}
+
+.compare-card .answer {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.8;
+}
+
+.compare-card.good .answer {
+  color: #aaa;
+}
+
+.compare-card.good .answer .gold {
+  color: #c8a050;
+  font-weight: 600;
+}
+
+.compare-card .verdict {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.compare-card.bad .verdict { color: #ff6b6b; }
+.compare-card.good .verdict { color: #50c878; }
+
+/* ===== FRAMEWORKS ===== */
+.frameworks { background: #0a0a0f; }
+
+/* ===== VOICE ===== */
+.voice {
+  background: linear-gradient(180deg, #0a0a0f 0%, #0f0f18 100%);
+}
+
+.voice-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.voice-card {
+  background: rgba(200, 160, 80, 0.03);
+  border: 1px solid rgba(200, 160, 80, 0.1);
+  border-radius: 14px;
+  padding: 20px 24px;
+  transition: all 0.2s;
+}
+
+.voice-card:hover {
+  background: rgba(200, 160, 80, 0.06);
+  border-color: rgba(200, 160, 80, 0.2);
+}
+
+.voice-role {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.voice-avatar {
+  font-size: 20px;
+}
+
+.voice-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e8d5a3;
+}
+
+.voice-frame {
+  font-size: 11px;
+  color: #888;
+  background: rgba(255,255,255,0.04);
+  padding: 2px 10px;
+  border-radius: 100px;
+  margin-left: auto;
+}
+
+.voice-text {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.9;
+}
+
+.fw-category {
+  margin-bottom: 40px;
+}
+
+.fw-category-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #e8d5a3;
+}
+
+.fw-category-title .icon {
+  font-size: 22px;
+}
+
+.fw-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.fw-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.fw-card:hover {
+  background: rgba(200, 160, 80, 0.04);
+  border-color: rgba(200, 160, 80, 0.15);
+}
+
+.fw-card .name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ddd;
+}
+
+.fw-card .desc {
+  font-size: 13px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.fw-card .tool {
+  font-size: 12px;
+  color: #c8a050;
+  background: rgba(200, 160, 80, 0.08);
+  padding: 4px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ===== COMBO ===== */
+.combo {
+  background: linear-gradient(180deg, #0a0a0f 0%, #0f0f18 100%);
+}
+
+.combo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.combo-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+}
+
+.combo-item .scene {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e8d5a3;
+  min-width: 100px;
+}
+
+.combo-item .chain {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.combo-item .chain .fw {
+  background: rgba(200, 160, 80, 0.08);
+  color: #c8a050;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.combo-item .chain .arrow {
+  color: #444;
+  font-size: 16px;
+}
+
+@media (max-width: 500px) {
+  .combo-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .combo-item .scene { min-width: auto; }
+}
+
+/* ===== INSTALL ===== */
+.install {
+  background: #0f0f18;
+  text-align: center;
+}
+
+.install-box {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 32px;
+  font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+}
+
+.install-box .cmd {
+  font-size: 14px;
+  color: #50c878;
+  word-break: break-all;
+}
+
+.install-box .cmd .comment {
+  color: #555;
+}
+
+.install-features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.install-feature {
+  font-size: 14px;
+  color: #666;
+}
+
+.install-feature span {
+  color: #c8a050;
+  font-weight: 700;
+}
+
+/* ===== USAGE ===== */
+.usage {
+  background: linear-gradient(180deg, #0f0f18 0%, #0a0a0f 100%);
+}
+
+.usage-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.usage-item {
+  padding: 14px 20px;
+  background: rgba(255,255,255,0.02);
+  border-left: 3px solid rgba(200, 160, 80, 0.3);
+  border-radius: 0 10px 10px 0;
+  font-size: 15px;
+  color: #aaa;
+}
+
+.usage-item .trigger {
+  color: #c8a050;
+  font-weight: 600;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ===== CTA ===== */
+.cta {
+  padding: 100px 24px;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 100%, #1a0a2e 0%, #0a0a0f 70%);
+}
+
+.cta h2 {
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #e8d5a3, #c8a050);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.cta-link {
+  display: inline-block;
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #c8a050, #a08030);
+  color: #0a0a0f;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.cta-link:hover {
+  background: linear-gradient(135deg, #d8b060, #b09040);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 40px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.footer p {
+  color: #444;
+  font-size: 13px;
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 160, 80, 0.2), transparent);
+  max-width: 800px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🏯 开源 · 免费 · 零依赖</div>
+  <h1>华夏智囊</h1>
+  <p>把5000年文明压成一个AI插件<br>老祖宗亲自下场，帮你破局</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">18</div>
+      <div class="label">智慧框架</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">6</div>
+      <div class="label">覆盖场景</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">0</div>
+      <div class="label">外部依赖</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="section-title">每次问AI，都是废话文学</div>
+  <div class="section-sub">你问"我该怎么办"，它让你"权衡利弊"。听完等于没听。</div>
+
+  <div class="problem-box">
+    <div class="label">典型 AI 回答</div>
+    <div class="text">
+      "这是一个重要的决策，<span class="highlight">建议你从以下几个维度综合考虑</span>：1. 薪资待遇 2. 发展空间 3. 团队氛围 4. 工作内容。<span class="highlight">你可以列一个优缺点清单</span>来帮助你……"
+    </div>
+  </div>
+  <div class="problem-box">
+    <div class="label">再问一个</div>
+    <div class="text">
+      "面对复杂任务，<span class="highlight">建议你将其拆分为小的可执行的子任务</span>，按优先级排序后逐一完成。<span class="highlight">可以考虑使用番茄工作法</span>来提高效率……"
+    </div>
+  </div>
+  <div class="problem-box">
+    <div class="label">再问一个</div>
+    <div class="text">
+      "理解你的焦虑。<span class="highlight">建议你深呼吸，保持积极心态</span>。每个人都有紧张的时候，<span class="highlight">相信你自己可以做到的</span>……"
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="section-title">华夏智囊的回答</div>
+  <div class="section-sub">不是给建议，是给你一把不同形状的刀，去切不同形状的问题。</div>
+
+  <div class="solution-box">
+    <div class="label">同一个问题 · 阴阳平衡 · 老祖宗亲自答</div>
+    <div class="text" style="line-height:2">
+      <span class="highlight">⚖️ 阴阳天平</span><br><br>
+      <em style="color:#999">唔，跳槽之事，老夫年轻时也纠结过。</em><br><br>
+      汝只看到新东家银钱多，却不想——那多出来的银钱，<span class="highlight">是不是拿你的命换的</span>？你且想想，现东家虽无新意，但根基已稳。换一处，一切从头来过，<span class="highlight">那份安稳，你舍得</span>？<br><br>
+      老夫给你指条路：<strong>两边都别急</strong>。在现处再待两月，主动寻些新事做，看看这棵树还能不能长出新枝。同时，拿那边的真实聘书来看看，<span class="highlight">别听画饼</span>。<br><br>
+      两月之后，哪边看得清，便走哪边。<br><br>
+      <span style="color:#c8a050">"反者道之动。"——事情往往在你不再纠结的时候，自己就清楚了。<strong>去吧。</strong></span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPARE -->
+<section class="compare">
+  <div class="section-title">效果对比</div>
+  <div class="section-sub">同一个问题，两种完全不同的回答</div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="tag">❌ 普通 AI</div>
+      <div class="question">"项目太复杂了，无从下手"</div>
+      <div class="answer">
+        建议你将项目拆分为多个子任务，按优先级排序。可以使用甘特图来跟踪进度。记得设定里程碑，定期复盘。如果有困难可以寻求同事帮助……
+      </div>
+      <div class="verdict">列了一堆你自己都知道的东西</div>
+    </div>
+    <div class="compare-card good">
+      <div class="tag">✅ 华夏智囊 · 庖丁解牛</div>
+      <div class="question">"项目太复杂了，无从下手"</div>
+      <div class="answer">
+        <span class="gold">🐂 牛的结构分析</span><br>
+        骨头：数据迁移（硬骨头，伤刀）<br>
+        肯綮：核心接口定义（此关节一通，百节皆顺）<br>
+        纹理：旧系统已有API文档（此乃天然缝隙）<br><br>
+        <span class="gold">🔪 解牛路线图</span><br>
+        Step1: 从旧API文档下刀（已有结构，复用八成）<br>
+        Step2: 避开数据迁移（让DBA先行，勿以刀碰骨）<br>
+        Step3: 直取核心接口（先定协议，此为肯綮）<br>
+        Step4: 余势推及前端对接（势成则事半功倍）
+      </div>
+      <div class="verdict">老师傅亲自帮你拆解，给路线图</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VOICE -->
+<section class="voice">
+  <div class="section-title">老祖宗亲自下场</div>
+  <div class="section-sub">半文半白，像一位智者坐在你对面跟你说话。不同框架，不同性格。</div>
+
+  <div class="voice-grid">
+    <div class="voice-card">
+      <div class="voice-role">
+        <span class="voice-avatar">🏻</span>
+        <span class="voice-name">韩非子</span>
+        <span class="voice-frame">法术势</span>
+      </div>
+      <div class="voice-text">
+        "老板说一套做一套？唔，汝只看到了'术'。<strong>先看法</strong>——公司里什么规则在起作用，谁定的？<strong>再看势</strong>——大趋势在哪边？<strong>最后用术</strong>——借势用术，四两拨千斤。别光顾着抱怨，<span style="color:#c8a050">你手里有牌，只是没看清楚。</span>"
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-role">
+        <span class="voice-avatar">🧘</span>
+        <span class="voice-name">禅宗大师</span>
+        <span class="voice-frame">放下执着</span>
+      </div>
+      <div class="voice-text">
+        "放不下？老衲问你——<strong>你抓着不放的那件事，你现在能改变它吗</strong>？若能，何必内耗，去做便是。若不能，你紧握双拳，手里除了空气，还有什么？<span style="color:#c8a050">松手。不是认输，是腾出手来拿更好的东西。</span>"
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-role">
+        <span class="voice-avatar">⚔️</span>
+        <span class="voice-name">孙子</span>
+        <span class="voice-frame">先为不可胜</span>
+      </div>
+      <div class="voice-text">
+        "年轻人，<strong>你只想着怎么赢，没想过怎么不输</strong>。兵法云：未战先算败。这个项目，最坏能坏到什么程度？那个最坏情况，<span style="color:#c8a050">你有办法排除吗？如果没有，老夫劝你——先别上。</span>"
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-role">
+        <span class="voice-avatar">🫧</span>
+        <span class="voice-name">庖丁（老师傅）</span>
+        <span class="voice-frame">庖丁解牛</span>
+      </div>
+      <div class="voice-text">
+        "嘿，年轻人别急。这事儿啊，你看着像一团乱麻，<strong>其实有纹理的</strong>。你找到那纹理了没？没有？那你硬砍，能不累吗？来，老夫教你——<span style="color:#c8a050">先别动刀，先看清楚这头'牛'的结构。</span>骨头在哪，关节在哪，缝隙在哪。看清楚了，一刀下去，哗啦就开了。"
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-role">
+        <span class="voice-avatar">💧</span>
+        <span class="voice-name">老子</span>
+        <span class="voice-frame">上善若水</span>
+      </div>
+      <div class="voice-text">
+        "计划全打乱了？<strong>水从来不按计划流。</strong>前面有石头，它绕过去；前面有悬崖，它积蓄起来；前面有平原，它慢慢铺开。<span style="color:#c8a050">你为什么不学学水？非得跟那块石头硬碰。</span>绕过去不丢人，能到目的地就行。"
+      </div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-role">
+        <span class="voice-avatar">📜</span>
+        <span class="voice-name">孔夫子</span>
+        <span class="voice-frame">己所不欲</span>
+      </div>
+      <div class="voice-text">
+        "你想骂他？且慢。<strong>你先坐在他的椅子上想一想</strong>——如果你是他，面对你现在这副样子，你会怎么想？<span style="color:#c8a050">己所不欲，勿施于人。这话不是让你忍，是让你在开口之前，先看清楚全貌。</span>看清了，你该骂还是骂，但那时候你的话，会更有分量。"
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FRAMEWORKS -->
+<section class="frameworks">
+  <div class="section-title">18个智慧框架</div>
+  <div class="section-sub">每个都有独特的思考工具，不是换个壳说同样的话</div>
+
+  <div class="fw-category">
+    <div class="fw-category-title"><span class="icon">📊</span> 决策类</div>
+    <div class="fw-grid">
+      <div class="fw-card">
+        <div><div class="name">阴阳平衡</div><div class="desc">极端不可持续，平衡才是王道</div></div>
+        <div class="tool">双面天平</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">中庸之道</div><div class="desc">过犹不及，找到刚刚好</div></div>
+        <div class="tool">刻度尺</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">先为不可胜</div><div class="desc">先想怎么不输，再想怎么赢</div></div>
+        <div class="tool">风险优先矩阵</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fw-category">
+    <div class="fw-category-title"><span class="icon">⚡</span> 效率类</div>
+    <div class="fw-grid">
+      <div class="fw-card">
+        <div><div class="name">庖丁解牛</div><div class="desc">顺着纹理走，不硬砍骨头</div></div>
+        <div class="tool">纹理路线图</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">无为而治</div><div class="desc">有时候不做比做更好</div></div>
+        <div class="tool">干预审计清单</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">循名责实</div><div class="desc">撕掉虚名，只看结果</div></div>
+        <div class="tool">名实对照表</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fw-category">
+    <div class="fw-category-title"><span class="icon">🌱</span> 成长类</div>
+    <div class="fw-grid">
+      <div class="fw-card">
+        <div><div class="name">每日三省</div><div class="desc">为谁谋、与谁交、传谁习</div></div>
+        <div class="tool">三问复盘卡片</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">平常心</div><div class="desc">把大事看小，就是平常心</div></div>
+        <div class="tool">视角缩小术</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">治未病</div><div class="desc">病从浅中医，事从微处防</div></div>
+        <div class="tool">预警雷达</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fw-category">
+    <div class="fw-category-title"><span class="icon">🤝</span> 关系类</div>
+    <div class="fw-grid">
+      <div class="fw-card">
+        <div><div class="name">己所不欲</div><div class="desc">换位之后，再开口</div></div>
+        <div class="tool">角色互换推演</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">共生之道</div><div class="desc">让双方利益绑定</div></div>
+        <div class="tool">利益绑定图谱</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">体面绝交</div><div class="desc">好聚好散，不留话柄</div></div>
+        <div class="tool">退出策略</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fw-category">
+    <div class="fw-category-title"><span class="icon">💰</span> 搞钱类</div>
+    <div class="fw-grid">
+      <div class="fw-card">
+        <div><div class="name">赏罚二柄</div><div class="desc">胡萝卜加大棒，配比是关键</div></div>
+        <div class="tool">激励配比方案</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">法术势</div><div class="desc">找对杠杆，四两拨千斤</div></div>
+        <div class="tool">杠杆分析图</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">吃亏是福</div><div class="desc">算大账，不算小账</div></div>
+        <div class="tool">长期账本</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fw-category">
+    <div class="fw-category-title"><span class="icon">🧘</span> 生活类</div>
+    <div class="fw-grid">
+      <div class="fw-card">
+        <div><div class="name">上善若水</div><div class="desc">随形就势，不硬碰</div></div>
+        <div class="tool">适应力路线</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">放下执着</div><div class="desc">区分能改的和该接的</div></div>
+        <div class="tool">控制圈</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">慢工出细活</div><div class="desc">有些事快不得</div></div>
+        <div class="tool">节奏审计</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMBO -->
+<section class="combo">
+  <div class="section-title">组合技</div>
+  <div class="section-sub">复杂问题从来不是一个框架能解决的。多个框架串联，形成完整分析链路。</div>
+
+  <div class="combo-list">
+    <div class="combo-item">
+      <div class="scene">重大决策</div>
+      <div class="chain">
+        <span class="fw">阴阳平衡</span><span class="arrow">→</span>
+        <span class="fw">先为不可胜</span><span class="arrow">→</span>
+        <span class="fw">上善若水</span>
+      </div>
+    </div>
+    <div class="combo-item">
+      <div class="scene">职场破局</div>
+      <div class="chain">
+        <span class="fw">法术势</span><span class="arrow">→</span>
+        <span class="fw">己所不欲</span><span class="arrow">→</span>
+        <span class="fw">共生之道</span>
+      </div>
+    </div>
+    <div class="combo-item">
+      <div class="scene">个人成长</div>
+      <div class="chain">
+        <span class="fw">每日三省</span><span class="arrow">→</span>
+        <span class="fw">治未病</span><span class="arrow">→</span>
+        <span class="fw">庖丁解牛</span>
+      </div>
+    </div>
+    <div class="combo-item">
+      <div class="scene">关系修复</div>
+      <div class="chain">
+        <span class="fw">己所不欲</span><span class="arrow">→</span>
+        <span class="fw">放下执着</span><span class="arrow">→</span>
+        <span class="fw">慢工出细活</span>
+      </div>
+    </div>
+    <div class="combo-item">
+      <div class="scene">利益谈判</div>
+      <div class="chain">
+        <span class="fw">共生之道</span><span class="arrow">→</span>
+        <span class="fw">吃亏是福</span><span class="arrow">→</span>
+        <span class="fw">循名责实</span>
+      </div>
+    </div>
+    <div class="combo-item">
+      <div class="scene">项目攻坚</div>
+      <div class="chain">
+        <span class="fw">庖丁解牛</span><span class="arrow">→</span>
+        <span class="fw">无为而治</span><span class="arrow">→</span>
+        <span class="fw">先为不可胜</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- USAGE -->
+<section class="usage">
+  <div class="section-title">不需要记任何命令</div>
+  <div class="section-sub">直接说你的困惑，Skill 自动匹配最合适的智慧框架。</div>
+
+  <div class="usage-list">
+    <div class="usage-item">
+      <span class="trigger">→ 阴阳平衡</span>
+      "我该跳槽还是留下，纠结死了"
+    </div>
+    <div class="usage-item">
+      <span class="trigger">→ 庖丁解牛</span>
+      "这个项目太复杂了，不知道从哪开始"
+    </div>
+    <div class="usage-item">
+      <span class="trigger">→ 法术势</span>
+      "老板说一套做一套，怎么推动这个事"
+    </div>
+    <div class="usage-item">
+      <span class="trigger">→ 平常心</span>
+      "明天要汇报，好紧张，万一搞砸了"
+    </div>
+    <div class="usage-item">
+      <span class="trigger">→ 放下执着</span>
+      "放不下那件事，一直在想，内耗"
+    </div>
+    <div class="usage-item">
+      <span class="trigger">→ 己所不欲</span>
+      "他怎么这样，想骂人"
+    </div>
+    <div class="usage-item">
+      <span class="trigger">→ 组合：法术势+己所不欲+共生之道</span>
+      "帮我处理跟领导的关系"
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INSTALL -->
+<section class="install">
+  <div class="section-title">一行命令安装</div>
+  <div class="section-sub">纯 Markdown，零依赖，不联网，不调 API。</div>
+
+  <div class="install-box">
+    <div class="cmd">
+      <span class="comment"># Claude Code</span><br>
+      git clone https://github.com/yourname/huaxia-wisdom.git ~/.claude/skills/huaxia-wisdom<br><br>
+      <span class="comment"># OpenClaw</span><br>
+      git clone https://github.com/yourname/huaxia-wisdom.git ~/.openclaw/skills/huaxia-wisdom
+    </div>
+  </div>
+
+  <div class="install-features">
+    <div class="install-feature"><span>18</span> 个智慧框架</div>
+    <div class="install-feature"><span>6</span> 大覆盖场景</div>
+    <div class="install-feature"><span>0</span> 个外部依赖</div>
+    <div class="install-feature"><span>∞</span> 永久免费</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>诸子百家，为你所用</h2>
+  <p>老祖宗的智慧 + AI 的推理能力 = 你还没见过的决策辅助工具</p>
+  <a class="cta-link" href="https://github.com/yourname/huaxia-wisdom">GitHub →</a>
+</div>
+
+<div class="footer">
+  <p>开源 · 免费 · Made with 🏯</p>
+</div>
+
+</body>
+</html>
