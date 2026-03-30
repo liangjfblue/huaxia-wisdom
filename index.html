@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>华夏智囊 - 老祖宗智慧全家桶</title>
+<title>华夏老祖宗智慧 - 全家桶</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -438,22 +438,64 @@ section {
   text-align: center;
 }
 
+.install-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.install-tab {
+  padding: 10px 24px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.install-tab:hover {
+  border-color: rgba(200, 160, 80, 0.3);
+  color: #888;
+}
+
+.install-tab.active {
+  background: rgba(200, 160, 80, 0.1);
+  border-color: rgba(200, 160, 80, 0.4);
+  color: #c8a050;
+}
+
 .install-box {
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
-  padding: 32px;
+  padding: 24px;
   font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  text-align: left;
+  overflow-x: auto;
 }
 
+.install-panel { display: none; }
+.install-panel.active { display: block; }
+
 .install-box .cmd {
-  font-size: 14px;
+  font-size: 13px;
   color: #50c878;
+  line-height: 1.8;
+  white-space: pre-wrap;
   word-break: break-all;
 }
 
 .install-box .cmd .comment {
   color: #555;
+}
+
+.install-box .cmd .label {
+  color: #c8a050;
+  font-weight: 600;
 }
 
 .install-features {
@@ -567,7 +609,7 @@ section {
 <!-- HERO -->
 <div class="hero">
   <div class="hero-badge">🏯 开源 · 免费 · 零依赖</div>
-  <h1>华夏智囊</h1>
+  <h1>华夏老祖宗智慧</h1>
   <p>把5000年文明压成一个AI插件<br>老祖宗亲自下场，帮你破局</p>
   <div class="hero-stats">
     <div class="hero-stat">
@@ -616,7 +658,7 @@ section {
 
 <!-- SOLUTION -->
 <section class="solution">
-  <div class="section-title">华夏智囊的回答</div>
+  <div class="section-title">华夏老祖宗智慧的回答</div>
   <div class="section-sub">不是给建议，是给你一把不同形状的刀，去切不同形状的问题。</div>
 
   <div class="solution-box">
@@ -649,7 +691,7 @@ section {
       <div class="verdict">列了一堆你自己都知道的东西</div>
     </div>
     <div class="compare-card good">
-      <div class="tag">✅ 华夏智囊 · 庖丁解牛</div>
+      <div class="tag">✅ 华夏老祖宗智慧 · 庖丁解牛</div>
       <div class="question">"项目太复杂了，无从下手"</div>
       <div class="answer">
         <span class="gold">🐂 牛的结构分析</span><br>
@@ -959,12 +1001,34 @@ section {
   <div class="section-title">一行命令安装</div>
   <div class="section-sub">纯 Markdown，零依赖，不联网，不调 API。</div>
 
+  <div class="install-tabs">
+    <button class="install-tab active" data-tab="claude">Claude Code</button>
+    <button class="install-tab" data-tab="openclaw">OpenClaw</button>
+    <button class="install-tab" data-tab="windows">Windows</button>
+  </div>
+
   <div class="install-box">
-    <div class="cmd">
-      <span class="comment"># Claude Code</span><br>
-      git clone https://github.com/liangjfblue/huaxia-wisdom.git ~/.claude/skills/huaxia-wisdom<br><br>
-      <span class="comment"># OpenClaw</span><br>
-      git clone https://github.com/liangjfblue/huaxia-wisdom.git ~/.openclaw/skills/huaxia-wisdom
+    <div class="install-panel active" id="panel-claude">
+      <div class="cmd"><span class="comment"># Mac / Linux</span>
+git clone --depth 1 --filter=blob:none --sparse \
+  https://github.com/liangjfblue/huaxia-wisdom.git /tmp/huaxia \
+  && cd /tmp/huaxia && git sparse-checkout set SKILL.md references \
+  && mkdir -p ~/.claude/skills/huaxia-wisdom \
+  && mv SKILL.md references ~/.claude/skills/huaxia-wisdom \
+  && rm -rf /tmp/huaxia</div>
+    </div>
+    <div class="install-panel" id="panel-openclaw">
+      <div class="cmd"><span class="comment"># Mac / Linux</span>
+git clone --depth 1 --filter=blob:none --sparse \
+  https://github.com/liangjfblue/huaxia-wisdom.git /tmp/huaxia \
+  && cd /tmp/huaxia && git sparse-checkout set SKILL.md references \
+  && mkdir -p ~/.openclaw/skills/huaxia-wisdom \
+  && mv SKILL.md references ~/.openclaw/skills/huaxia-wisdom \
+  && rm -rf /tmp/huaxia</div>
+    </div>
+    <div class="install-panel" id="panel-windows">
+      <div class="cmd"><span class="comment"># PowerShell (以管理员运行)</span>
+git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git $env:TEMP/huaxia; cd $env:TEMP/huaxia; git sparse-checkout set SKILL.md references; New-Item -ItemType Directory -Force -Path "$env:USERPROFILE/.claude/skills/huaxia-wisdom"; Copy-Item -Recurse SKILL.md references "$env:USERPROFILE/.claude/skills/huaxia-wisdom"; Remove-Item -Recurse -Force $env:TEMP/huaxia</div>
     </div>
   </div>
 
@@ -986,6 +1050,17 @@ section {
 <div class="footer">
   <p>开源 · 免费 · Made with 🏯</p>
 </div>
+
+<script>
+document.querySelectorAll('.install-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.install-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.install-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
 
 </body>
 </html>
