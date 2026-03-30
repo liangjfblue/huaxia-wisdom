@@ -198,7 +198,7 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/h
 
 ## 使用方式
 
-不需要记任何命令。直接说你的困惑就行：
+不需记任何命令。直接说你的困惑就行：
 
 ```
 "我该跳槽还是留下"
