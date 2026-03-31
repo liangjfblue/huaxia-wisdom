@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>华夏老祖宗智慧 - 全家桶</title>
+<title>华夏老祖宗.skill</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+}
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -91,6 +94,49 @@ body {
   font-size: 13px;
   color: #666;
   margin-top: 4px;
+}
+
+/* ===== SAGE MARQUEE ===== */
+.hero-sages {
+  width: 100%;
+  max-width: 560px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+}
+
+.hero-sages-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: sage-scroll 30s linear infinite;
+}
+
+.hero-sages:hover .hero-sages-track {
+  animation-play-state: paused;
+}
+
+.hero-sage {
+  font-size: 13px;
+  color: #555;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.hero-sage:hover {
+  color: #c8a050;
+}
+
+.hero-sage::before {
+  content: '· ';
+  color: #333;
+}
+
+@keyframes sage-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ===== SECTIONS ===== */
@@ -608,9 +654,62 @@ section {
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-badge">🏯 开源 · 免费 · 零依赖</div>
-  <h1>华夏老祖宗智慧</h1>
-  <p>把5000年文明压成一个AI skills<br>老祖宗亲自下场，帮你破局</p>
+  <h1>华夏老祖宗.skill</h1>
+  <div id="hero-quote" style="color:#999;font-style:italic;max-width:500px;margin-bottom:24px;font-size:15px;line-height:1.8;min-height:30px;transition:opacity 0.4s;white-space:nowrap">
+  </div>
+  <p>24个古人，24种毒舌，专治各种纠结和内耗</p>
+  <div class="hero-sages">
+    <div class="hero-sages-track">
+      <span class="hero-sage">老哲学家</span>
+      <span class="hero-sage">老儒师</span>
+      <span class="hero-sage">老将军</span>
+      <span class="hero-sage">军师</span>
+      <span class="hero-sage">庖丁</span>
+      <span class="hero-sage">隐士</span>
+      <span class="hero-sage">法家</span>
+      <span class="hero-sage">老学长</span>
+      <span class="hero-sage">禅僧</span>
+      <span class="hero-sage">老太医</span>
+      <span class="hero-sage">王阳明</span>
+      <span class="hero-sage">朱熹</span>
+      <span class="hero-sage">孔子</span>
+      <span class="hero-sage">老商人</span>
+      <span class="hero-sage">侠客</span>
+      <span class="hero-sage">鬼谷子</span>
+      <span class="hero-sage">老谋士</span>
+      <span class="hero-sage">老幕僚</span>
+      <span class="hero-sage">老掌柜</span>
+      <span class="hero-sage">老子</span>
+      <span class="hero-sage">老禅师</span>
+      <span class="hero-sage">老匠人</span>
+      <span class="hero-sage">塞翁</span>
+      <span class="hero-sage">周文王</span>
+      <span class="hero-sage">老哲学家</span>
+      <span class="hero-sage">老儒师</span>
+      <span class="hero-sage">老将军</span>
+      <span class="hero-sage">军师</span>
+      <span class="hero-sage">庖丁</span>
+      <span class="hero-sage">隐士</span>
+      <span class="hero-sage">法家</span>
+      <span class="hero-sage">老学长</span>
+      <span class="hero-sage">禅僧</span>
+      <span class="hero-sage">老太医</span>
+      <span class="hero-sage">王阳明</span>
+      <span class="hero-sage">朱熹</span>
+      <span class="hero-sage">孔子</span>
+      <span class="hero-sage">老商人</span>
+      <span class="hero-sage">侠客</span>
+      <span class="hero-sage">鬼谷子</span>
+      <span class="hero-sage">老谋士</span>
+      <span class="hero-sage">老幕僚</span>
+      <span class="hero-sage">老掌柜</span>
+      <span class="hero-sage">老子</span>
+      <span class="hero-sage">老禅师</span>
+      <span class="hero-sage">老匠人</span>
+      <span class="hero-sage">塞翁</span>
+      <span class="hero-sage">周文王</span>
+    </div>
+  </div>
   <div class="hero-stats">
     <div class="hero-stat">
       <div class="num">24</div>
@@ -631,7 +730,7 @@ section {
 
 <!-- PROBLEM -->
 <section class="problem">
-  <div class="section-title">每次问AI，都是废话文学</div>
+  <div class="section-title">每次问AI，回答都是同一套废话</div>
   <div class="section-sub">你问"我该怎么办"，它让你"权衡利弊"。听完等于没听。</div>
 
   <div class="problem-box">
@@ -1190,7 +1289,7 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/h
 <!-- CTA -->
 <div class="cta">
   <h2>诸子百家，为你所用</h2>
-  <p>老祖宗的智慧 + AI 的推理能力 = 你还没见过的决策辅助工具</p>
+  <p>不是让AI更会说话，是让你更会想问题</p>
   <a class="cta-link" href="https://github.com/liangjfblue/huaxia-wisdom">GitHub →</a>
 </div>
 
@@ -1207,6 +1306,31 @@ document.querySelectorAll('.install-tab').forEach(tab => {
     document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
   });
 });
+
+// Hero quote rotation
+(function() {
+  var quotes = [
+    { text: '"知而不行，只是未知。别骗自己了。"', author: '王阳明' },
+    { text: '"你只想着怎么赢，没想过怎么不输。"', author: '孙子' },
+    { text: '"你手里有牌，只是没看清楚。"', author: '韩非子' },
+    { text: '"松手。不是认输，是腾出手来拿更好的东西。"', author: '禅宗大师' }
+  ];
+  var el = document.getElementById('hero-quote');
+  var idx = Math.floor(Math.random() * quotes.length);
+  function show() {
+    var q = quotes[idx];
+    el.style.opacity = '0';
+    setTimeout(function() {
+      el.innerHTML = q.text + '<br><span style="color:#c8a050;font-size:13px">—— ' + q.author + '</span>';
+      el.style.opacity = '1';
+    }, 400);
+  }
+  show();
+  setInterval(function() {
+    idx = (idx + 1) % quotes.length;
+    show();
+  }, 6000);
+})();
 </script>
 
 </body>
