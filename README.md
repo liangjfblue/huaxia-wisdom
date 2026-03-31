@@ -156,7 +156,15 @@
 
 只需要 `SKILL.md` 和 `references/` 两个文件/目录，其余文件（网页、文档）不需要复制。
 
-### 一键安装
+### 一行命令安装（推荐）
+
+```bash
+clawhub install huaxia-sage
+```
+
+支持 Claude Code、OpenClaw 等所有兼容平台，一行搞定。
+
+### 手动安装
 
 **Mac / Linux：**
 ```bash
@@ -176,10 +184,7 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/h
 git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git $env:TEMP/huaxia-wisdom; cd $env:TEMP/huaxia-wisdom; git sparse-checkout set SKILL.md references; New-Item -ItemType Directory -Force -Path "$env:USERPROFILE/.openclaw/skills/huaxia-wisdom"; Copy-Item SKILL.md references "$env:USERPROFILE/.openclaw/skills/huaxia-wisdom"; Remove-Item -Recurse -Force $env:TEMP/huaxia-wisdom
 ```
 
-### 手动安装
-
-从 [GitHub](https://github.com/liangjfblue/huaxia-wisdom) 下载以下两个文件，放入对应 skills 目录：
-
+**目录结构：**
 ```
 ~/.claude/skills/huaxia-wisdom/       # 或 ~/.openclaw/skills/huaxia-wisdom/
 ├── SKILL.md
