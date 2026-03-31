@@ -14,7 +14,7 @@
 
 **AI给你的，是正确的废话。老祖宗给你的，是一把刀。**
 
-[安装指南](#-三步安装) · [全部24个框架](#-24个智慧框架) · [效果对比](#-效果对比) · [组合技](#-组合技) · [在线体验](https://huaxia-wisdom.vercel.app)
+[安装指南](#-安装) · [全部24个框架](#-24个智慧框架) · [效果对比](#-效果对比) · [组合技](#-组合技) · [在线体验](https://huaxia-wisdom.vercel.app)
 
 </div>
 
@@ -150,37 +150,49 @@
 
 只需要 `SKILL.md` 和 `references/` 两个文件/目录，其余文件（网页、文档）不需要复制。
 
-### 一行命令安装（推荐）
+> **国内用户推荐使用 Gitee，国外用户推荐使用 GitHub。**
+
+### ClawHub 安装（OpenClaw 用户）
 
 ```bash
 clawhub install huaxia-sage
 ```
 
-支持 Claude Code、OpenClaw 等所有兼容平台，一行搞定。
+OpenClaw（龙虾）用户一行搞定。
 
 ### 手动安装
 
-**Mac / Linux：**
-```bash
-# Claude Code
-git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git /tmp/huaxia-wisdom && cd /tmp/huaxia-wisdom && git sparse-checkout set SKILL.md references && mkdir -p ~/.claude/skills/huaxia-wisdom && mv SKILL.md references ~/.claude/skills/huaxia-wisdom && rm -rf /tmp/huaxia-wisdom
+#### Mac / Linux
 
-# OpenClaw（龙虾）
-git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git /tmp/huaxia-wisdom && cd /tmp/huaxia-wisdom && git sparse-checkout set SKILL.md references && mkdir -p ~/.openclaw/skills/huaxia-wisdom && mv SKILL.md references ~/.openclaw/skills/huaxia-wisdom && rm -rf /tmp/huaxia-wisdom
-```
+**Claude Code：**
 
-**Windows（PowerShell）：**
-```powershell
-# Claude Code
-git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git $env:TEMP/huaxia-wisdom; cd $env:TEMP/huaxia-wisdom; git sparse-checkout set SKILL.md references; New-Item -ItemType Directory -Force -Path "$env:USERPROFILE/.claude/skills/huaxia-wisdom"; Copy-Item SKILL.md references "$env:USERPROFILE/.claude/skills/huaxia-wisdom"; Remove-Item -Recurse -Force $env:TEMP/huaxia-wisdom
+| GitHub | Gitee（国内推荐） |
+|--------|------------------|
+| `git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git /tmp/huaxia-wisdom && cd /tmp/huaxia-wisdom && git sparse-checkout set SKILL.md references && mkdir -p ~/.claude/skills/huaxia-wisdom && mv SKILL.md references ~/.claude/skills/huaxia-wisdom && rm -rf /tmp/huaxia-wisdom` | `git clone https://gitee.com/aiami/huaxia-wisdom.git ~/.claude/skills/huaxia-wisdom` |
 
-# OpenClaw（龙虾）
-git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git $env:TEMP/huaxia-wisdom; cd $env:TEMP/huaxia-wisdom; git sparse-checkout set SKILL.md references; New-Item -ItemType Directory -Force -Path "$env:USERPROFILE/.openclaw/skills/huaxia-wisdom"; Copy-Item SKILL.md references "$env:USERPROFILE/.openclaw/skills/huaxia-wisdom"; Remove-Item -Recurse -Force $env:TEMP/huaxia-wisdom
-```
+**OpenClaw（龙虾）：**
+
+| GitHub | Gitee（国内推荐） |
+|--------|------------------|
+| `git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git /tmp/huaxia-wisdom && cd /tmp/huaxia-wisdom && git sparse-checkout set SKILL.md references && mkdir -p ~/.openclaw/skills/huaxia-wisdom && mv SKILL.md references ~/.openclaw/skills/huaxia-wisdom && rm -rf /tmp/huaxia-wisdom` | `git clone https://gitee.com/aiami/huaxia-wisdom.git ~/.openclaw/skills/huaxia-wisdom` |
+
+#### Windows（PowerShell）
+
+**Claude Code：**
+
+| GitHub | Gitee（国内推荐） |
+|--------|------------------|
+| `git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git $env:TEMP/huaxia-wisdom; cd $env:TEMP/huaxia-wisdom; git sparse-checkout set SKILL.md references; New-Item -ItemType Directory -Force -Path "$env:USERPROFILE/.claude/skills/huaxia-wisdom"; Copy-Item SKILL.md references "$env:USERPROFILE/.claude/skills/huaxia-wisdom"; Remove-Item -Recurse -Force $env:TEMP/huaxia-wisdom` | `git clone https://gitee.com/aiami/huaxia-wisdom.git $env:USERPROFILE/.claude/skills/huaxia-wisdom` |
+
+**OpenClaw（龙虾）：**
+
+| GitHub | Gitee（国内推荐） |
+|--------|------------------|
+| `git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git $env:TEMP/huaxia-wisdom; cd $env:TEMP/huaxia-wisdom; git sparse-checkout set SKILL.md references; New-Item -ItemType Directory -Force -Path "$env:USERPROFILE/.openclaw/skills/huaxia-wisdom"; Copy-Item SKILL.md references "$env:USERPROFILE/.openclaw/skills/huaxia-wisdom"; Remove-Item -Recurse -Force $env:TEMP/huaxia-wisdom` | `git clone https://gitee.com/aiami/huaxia-wisdom.git $env:USERPROFILE/.openclaw/skills/huaxia-wisdom` |
 
 **目录结构：**
 ```
-~/.claude/skills/huaxia-wisdom/       # 或 ~/.openclaw/skills/huaxia-wisdom/
+~/.claude/skills/huaxia-wisdom/
 ├── SKILL.md
 └── references/
     ├── decision.md
@@ -254,6 +266,6 @@ Skill 会自动匹配最合适的智慧框架。也可以主动指定：
 
 **不是让AI更会说话，是让你更会想问题。**
 
-Made with 🏯 by [liangjf](https://github.com/liangjfblue)
+Made with 🏯 by [liangjf](https://github.com/liangjfblue) · [Gitee 镜像](https://gitee.com/aiami/huaxia-wisdom)
 
 </div>

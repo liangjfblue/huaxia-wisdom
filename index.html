@@ -1243,28 +1243,34 @@ section {
   <div class="section-sub">纯 Markdown，零依赖，不联网，不调 API。</div>
 
   <div class="install-tabs">
-    <button class="install-tab active" data-tab="clawhub">ClawHub（推荐）</button>
-    <button class="install-tab" data-tab="claude">Claude Code</button>
-    <button class="install-tab" data-tab="openclaw">OpenClaw</button>
+    <button class="install-tab active" data-tab="clawhub">ClawHub</button>
+    <button class="install-tab" data-tab="gitee">Gitee（国内推荐）</button>
+    <button class="install-tab" data-tab="github">GitHub</button>
     <button class="install-tab" data-tab="windows">Windows</button>
   </div>
 
   <div class="install-box">
     <div class="install-panel active" id="panel-clawhub">
-      <div class="cmd"><span class="comment"># 一行搞定，支持所有兼容平台</span>
+      <div class="cmd"><span class="comment"># OpenClaw（龙虾）一行搞定</span>
 clawhub install huaxia-sage</div>
     </div>
-    <div class="install-panel" id="panel-claude">
-      <div class="cmd"><span class="comment"># Mac / Linux</span>
+    <div class="install-panel" id="panel-gitee">
+      <div class="cmd"><span class="comment"># Claude Code</span>
+git clone https://gitee.com/aiami/huaxia-wisdom.git ~/.claude/skills/huaxia-wisdom
+
+<span class="comment"># OpenClaw（龙虾）</span>
+git clone https://gitee.com/aiami/huaxia-wisdom.git ~/.openclaw/skills/huaxia-wisdom</div>
+    </div>
+    <div class="install-panel" id="panel-github">
+      <div class="cmd"><span class="comment"># Claude Code</span>
 git clone --depth 1 --filter=blob:none --sparse \
   https://github.com/liangjfblue/huaxia-wisdom.git /tmp/huaxia \
   && cd /tmp/huaxia && git sparse-checkout set SKILL.md references \
   && mkdir -p ~/.claude/skills/huaxia-wisdom \
   && mv SKILL.md references ~/.claude/skills/huaxia-wisdom \
-  && rm -rf /tmp/huaxia</div>
-    </div>
-    <div class="install-panel" id="panel-openclaw">
-      <div class="cmd"><span class="comment"># Mac / Linux</span>
+  && rm -rf /tmp/huaxia
+
+<span class="comment"># OpenClaw（龙虾）</span>
 git clone --depth 1 --filter=blob:none --sparse \
   https://github.com/liangjfblue/huaxia-wisdom.git /tmp/huaxia \
   && cd /tmp/huaxia && git sparse-checkout set SKILL.md references \
@@ -1273,8 +1279,17 @@ git clone --depth 1 --filter=blob:none --sparse \
   && rm -rf /tmp/huaxia</div>
     </div>
     <div class="install-panel" id="panel-windows">
-      <div class="cmd"><span class="comment"># PowerShell (以管理员运行)</span>
-git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git $env:TEMP/huaxia; cd $env:TEMP/huaxia; git sparse-checkout set SKILL.md references; New-Item -ItemType Directory -Force -Path "$env:USERPROFILE/.claude/skills/huaxia-wisdom"; Copy-Item -Recurse SKILL.md references "$env:USERPROFILE/.claude/skills/huaxia-wisdom"; Remove-Item -Recurse -Force $env:TEMP/huaxia</div>
+      <div class="cmd"><span class="comment"># Claude Code · Gitee（国内推荐）</span>
+git clone https://gitee.com/aiami/huaxia-wisdom.git %USERPROFILE%\.claude\skills\huaxia-wisdom
+
+<span class="comment"># OpenClaw · Gitee（国内推荐）</span>
+git clone https://gitee.com/aiami/huaxia-wisdom.git %USERPROFILE%\.openclaw\skills\huaxia-wisdom
+
+<span class="comment"># Claude Code · GitHub</span>
+git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git %TEMP%\huaxia && cd %TEMP%\huaxia && git sparse-checkout set SKILL.md references && mkdir "%USERPROFILE%\.claude\skills\huaxia-wisdom" && move SKILL.md references "%USERPROFILE%\.claude\skills\huaxia-wisdom" && rmdir /s /q %TEMP%\huaxia
+
+<span class="comment"># OpenClaw · GitHub</span>
+git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/huaxia-wisdom.git %TEMP%\huaxia && cd %TEMP%\huaxia && git sparse-checkout set SKILL.md references && mkdir "%USERPROFILE%\.openclaw\skills\huaxia-wisdom" && move SKILL.md references "%USERPROFILE%\.openclaw\skills\huaxia-wisdom" && rmdir /s /q %TEMP%\huaxia</div>
     </div>
   </div>
 
@@ -1290,7 +1305,10 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/h
 <div class="cta">
   <h2>诸子百家，为你所用</h2>
   <p>不是让AI更会说话，是让你更会想问题</p>
-  <a class="cta-link" href="https://github.com/liangjfblue/huaxia-wisdom">GitHub →</a>
+  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+    <a class="cta-link" href="https://github.com/liangjfblue/huaxia-wisdom">GitHub →</a>
+    <a class="cta-link" href="https://gitee.com/aiami/huaxia-wisdom" style="background:linear-gradient(135deg,#c71d23,#a0181e)">Gitee →</a>
+  </div>
 </div>
 
 <div class="footer">
