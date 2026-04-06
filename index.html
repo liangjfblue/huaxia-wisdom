@@ -641,6 +641,38 @@ section {
   font-size: 13px;
 }
 
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(200, 160, 80, 0.15);
+  border: 1px solid rgba(200, 160, 80, 0.3);
+  color: #c8a050;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+  z-index: 99;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: rgba(200, 160, 80, 0.25);
+  transform: translateY(-2px);
+}
+
 /* ===== DIVIDER ===== */
 .divider {
   height: 1px;
@@ -657,7 +689,7 @@ section {
   <h1>华夏老祖宗.skill</h1>
   <div id="hero-quote" style="color:#999;font-style:italic;max-width:500px;margin-bottom:24px;font-size:15px;line-height:1.8;min-height:30px;transition:opacity 0.4s;white-space:nowrap">
   </div>
-  <p>24个古人，24种毒舌，专治各种纠结和内耗</p>
+  <p>34个古人，34种毒舌，专治各种纠结和内耗</p>
   <div class="hero-sages">
     <div class="hero-sages-track">
       <span class="hero-sage">老哲学家</span>
@@ -684,6 +716,11 @@ section {
       <span class="hero-sage">老匠人</span>
       <span class="hero-sage">塞翁</span>
       <span class="hero-sage">周文王</span>
+      <span class="hero-sage">孙膑</span>
+      <span class="hero-sage">邹衍</span>
+      <span class="hero-sage">公孙龙</span>
+      <span class="hero-sage">吕不韦</span>
+      <span class="hero-sage">墨子</span>
       <span class="hero-sage">老哲学家</span>
       <span class="hero-sage">老儒师</span>
       <span class="hero-sage">老将军</span>
@@ -708,11 +745,16 @@ section {
       <span class="hero-sage">老匠人</span>
       <span class="hero-sage">塞翁</span>
       <span class="hero-sage">周文王</span>
+      <span class="hero-sage">孙膑</span>
+      <span class="hero-sage">邹衍</span>
+      <span class="hero-sage">公孙龙</span>
+      <span class="hero-sage">吕不韦</span>
+      <span class="hero-sage">墨子</span>
     </div>
   </div>
   <div class="hero-stats">
     <div class="hero-stat">
-      <div class="num">24</div>
+      <div class="num">34</div>
       <div class="label">智慧框架</div>
     </div>
     <div class="hero-stat">
@@ -933,7 +975,7 @@ section {
 
 <!-- FRAMEWORKS -->
 <section class="frameworks">
-  <div class="section-title">24个智慧框架</div>
+  <div class="section-title">34个智慧框架</div>
   <div class="section-sub">每个都有独特的思考工具，不是换个壳说同样的话</div>
 
   <div class="fw-category">
@@ -955,6 +997,14 @@ section {
         <div><div class="name">知己知彼</div><div class="desc">看清自己和对手的真实差距</div></div>
         <div class="tool">全景情报板</div>
       </div>
+      <div class="fw-card">
+        <div><div class="name">围魏救赵</div><div class="desc">正面打不过，就换战场</div></div>
+        <div class="tool">间接路线图</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">五行生克</div><div class="desc">判断大势，顺势而为</div></div>
+        <div class="tool">周期推演盘</div>
+      </div>
     </div>
   </div>
 
@@ -972,6 +1022,14 @@ section {
       <div class="fw-card">
         <div><div class="name">循名责实</div><div class="desc">撕掉虚名，只看结果</div></div>
         <div class="tool">名实对照表</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">破名辨实</div><div class="desc">打破标签，看见本质</div></div>
+        <div class="tool">概念拆解器</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">集大成者</div><div class="desc">博采众长，跨界整合</div></div>
+        <div class="tool">跨界整合图</div>
       </div>
     </div>
   </div>
@@ -999,6 +1057,14 @@ section {
         <div><div class="name">格物致知</div><div class="desc">从"知道名词"到"理解本质"</div></div>
         <div class="tool">深度学习法</div>
       </div>
+      <div class="fw-card">
+        <div><div class="name">自知之明</div><div class="desc">看清真实的自己</div></div>
+        <div class="tool">内观镜</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">守拙抱朴</div><div class="desc">笨功夫才是最快的路</div></div>
+        <div class="tool">笨功夫路线图</div>
+      </div>
     </div>
   </div>
 
@@ -1021,6 +1087,14 @@ section {
         <div><div class="name">纵横捭阖</div><div class="desc">先让对方打开，再顺势引导</div></div>
         <div class="tool">说服攻防图</div>
       </div>
+      <div class="fw-card">
+        <div><div class="name">因材施教</div><div class="desc">因人而异，对症下药</div></div>
+        <div class="tool">对症下药图</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">兼爱交利</div><div class="desc">打破偏见，公平合作</div></div>
+        <div class="tool">公平秤</div>
+      </div>
     </div>
   </div>
 
@@ -1038,6 +1112,10 @@ section {
       <div class="fw-card">
         <div><div class="name">吃亏是福</div><div class="desc">算大账，不算小账</div></div>
         <div class="tool">长期账本</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">尚贤使能</div><div class="desc">只看能力不看出身</div></div>
+        <div class="tool">人才雷达</div>
       </div>
     </div>
   </div>
@@ -1064,6 +1142,10 @@ section {
       <div class="fw-card">
         <div><div class="name">一张一弛</div><div class="desc">弓不能一直拉着，人不能一直绷着</div></div>
         <div class="tool">精力管理盘</div>
+      </div>
+      <div class="fw-card">
+        <div><div class="name">否极泰来</div><div class="desc">低谷之中，反转正在酝酿</div></div>
+        <div class="tool">周期翻转盘</div>
       </div>
     </div>
   </div>
@@ -1171,6 +1253,49 @@ section {
         <span class="fw">一张一弛</span><span class="arrow">→</span>
         <span class="fw">中庸之道</span><span class="arrow">→</span>
         <span class="fw">慢工出细活</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DEBATE -->
+<section class="combo">
+  <div class="section-title">诸子百家辩论归一</div>
+  <div class="section-sub">复杂问题，请几位老祖宗同时下场辩论，各自出招，最后归一。</div>
+
+  <div class="combo-list">
+    <div class="combo-item">
+      <div class="scene">职业抉择</div>
+      <div class="chain">
+        <span class="fw" style="background:rgba(80,200,120,0.08);color:#50c878">儒家</span><span class="arrow">+</span>
+        <span class="fw" style="background:rgba(100,150,255,0.08);color:#6496ff">道家</span><span class="arrow">+</span>
+        <span class="fw" style="background:rgba(255,100,100,0.08);color:#ff6464">法家</span>
+      </div>
+    </div>
+    <div class="combo-item">
+      <div class="scene">创业决策</div>
+      <div class="chain">
+        <span class="fw" style="background:rgba(255,200,80,0.08);color:#ffc850">兵家</span><span class="arrow">+</span>
+        <span class="fw" style="background:rgba(200,160,80,0.08);color:#c8a050">商家</span><span class="arrow">+</span>
+        <span class="fw" style="background:rgba(100,150,255,0.08);color:#6496ff">道家</span>
+      </div>
+    </div>
+    <div class="combo-item">
+      <div class="scene">团队管理</div>
+      <div class="chain">
+        <span class="fw" style="background:rgba(255,100,100,0.08);color:#ff6464">法家</span><span class="arrow">+</span>
+        <span class="fw" style="background:rgba(80,200,120,0.08);color:#50c878">儒家</span><span class="arrow">+</span>
+        <span class="fw" style="background:rgba(150,100,200,0.08);color:#9664c8">墨家</span>
+      </div>
+    </div>
+    <div class="combo-item">
+      <div class="scene">人生困境</div>
+      <div class="chain">
+        <span class="fw" style="background:rgba(200,200,200,0.08);color:#c8c8c8">禅宗</span><span class="arrow">+</span>
+        <span class="fw" style="background:rgba(100,150,255,0.08);color:#6496ff">道家</span><span class="arrow">+</span>
+        <span class="fw" style="background:rgba(200,160,80,0.08);color:#c8a050">周易</span>
       </div>
     </div>
   </div>
@@ -1294,7 +1419,7 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/h
   </div>
 
   <div class="install-features">
-    <div class="install-feature"><span>24</span> 个智慧框架</div>
+    <div class="install-feature"><span>34</span> 个智慧框架</div>
     <div class="install-feature"><span>6</span> 大覆盖场景</div>
     <div class="install-feature"><span>0</span> 个外部依赖</div>
     <div class="install-feature"><span>∞</span> 永久免费</div>
@@ -1314,6 +1439,8 @@ git clone --depth 1 --filter=blob:none --sparse https://github.com/liangjfblue/h
 <div class="footer">
   <p>开源 · 免费 · Made with 🏯</p>
 </div>
+
+<div class="back-to-top" id="backToTop">↑</div>
 
 <script>
 document.querySelectorAll('.install-tab').forEach(tab => {
@@ -1348,6 +1475,17 @@ document.querySelectorAll('.install-tab').forEach(tab => {
     idx = (idx + 1) % quotes.length;
     show();
   }, 6000);
+})();
+
+// Back to top
+(function() {
+  var btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', function() {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+  btn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 })();
 </script>
 
